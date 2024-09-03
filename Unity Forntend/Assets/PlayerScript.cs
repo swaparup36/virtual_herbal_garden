@@ -30,7 +30,7 @@ public class PlayerScript : MonoBehaviour
     {
         // Getting the CharacterController component
         controller = GetComponent<CharacterController>();
-        Camera.transform.position = this.transform.position;
+        Camera.transform.position = this.transform.position + new Vector3(0,1,0);
         Camera.transform.SetParent(this.transform);
         Cursor.lockState = CursorLockMode.Locked;
  
