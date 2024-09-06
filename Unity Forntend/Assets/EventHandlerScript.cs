@@ -91,6 +91,7 @@ public class EventHandlerScript : MonoBehaviour
                 ServerResponse r = JsonUtility.FromJson<ServerResponse>(req);
                 Debug.Log("Response: " + req);
                 PlayerPrefs.SetString("jwt", r.jwt);
+                PlayerPrefs.Save();
                 GoToMainGarden();
             }
         }

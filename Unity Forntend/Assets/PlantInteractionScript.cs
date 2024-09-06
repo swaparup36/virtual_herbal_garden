@@ -16,6 +16,7 @@ public class PlantInteractionScript : MonoBehaviour
         
     }
 
+
     // Update is called once per frame
     void Update()
     {
@@ -24,11 +25,13 @@ public class PlantInteractionScript : MonoBehaviour
         if (delta <= Radius)
         {
             isPlayerClose = true;
+            InteractUiScript.isPlayerClose = true;
             Canvas.gameObject.SetActive(true);
             Canvas.transform.forward = PlayerTransform.forward;
         }else
         {
             isPlayerClose = false;
+            InteractUiScript.isPlayerClose = false;
             Canvas.gameObject.SetActive(false);
         }
     }

@@ -14,4 +14,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Main Garden.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/Interaction Page.unity
+    guid: 05e528a56c284ad4aa4a5f12c22a4d48
+  - enabled: 1
+    path: Assets/Scenes/Take Notes.unity
+    guid: 4fd4d5143bec93140ac0b5a9163be9b6
+  - enabled: 1
+    path: Assets/Scenes/View Model.unity
+    guid: 58d036182a4e17442b2f3a568ff8e654
   m_configObjects: {}
