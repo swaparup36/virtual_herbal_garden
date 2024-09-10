@@ -49,7 +49,7 @@ public class InteractUiScript : MonoBehaviour
             PlayerPrefs.SetString("Position", $"{PlayerTransform.position.x},{PlayerTransform.position.y},{PlayerTransform.position.z}");
             PlayerPrefs.Save();
             Debug.Log("Interact");
-            SceneManager.LoadScene("Interaction Page");
+            SceneManager.LoadScene("ShortDetails");
         }
     }
 }

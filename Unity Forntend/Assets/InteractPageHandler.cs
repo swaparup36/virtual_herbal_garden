@@ -17,7 +17,7 @@ public class InteractPageHandler : MonoBehaviour
 
     public void OnGoBack()
     {
-        SceneManager.LoadScene("Main Garden");
+        SceneManager.LoadScene("ShortDetails");
     }
     public void OnTakeNotes()
     {
