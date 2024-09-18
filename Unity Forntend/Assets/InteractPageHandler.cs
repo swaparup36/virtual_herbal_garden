@@ -80,7 +80,12 @@ public class InteractPageHandler : MonoBehaviour
             if (webRequest.result == UnityWebRequest.Result.ConnectionError ||
                 webRequest.result == UnityWebRequest.Result.ProtocolError)
             {
-                Debug.LogError("Error: " + webRequest.error);
+                Debug.Log("Error: " + webRequest.error);
+                if (webRequest.responseCode == 401)
+                {
+                    StartCoroutine(WebRequestScript.RefreshAccessToken("https://sih-wxqc.onrender.com/users/token/refresh/"));
+                    StartCoroutine(SendPostRequest($"https://sih-wxqc.onrender.com/trees/{PlayerPrefs.GetString("ActiveCommonName")}"));
+                }
             }
             else
             {
@@ -102,7 +107,7 @@ public class InteractPageHandler : MonoBehaviour
                     }
                     if(PlantImage != null)
                     {
-                        string imgUrl = "https://t4.ftcdn.net/jpg/01/79/88/65/360_F_179886510_6xf0RHhDnLN5ovd2qmGF4WaZMJjqrt6o.jpg";
+                        string imgUrl = root.message.image_link;
                         Debug.Log($"Plnat Image place holder {root.message.image_link}");
                         StartCoroutine(LoadImageCoroutine(imgUrl));
                     }

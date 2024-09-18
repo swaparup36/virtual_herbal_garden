@@ -1115,8 +1115,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 997393240}
   - {fileID: 1043526934}
+  - {fileID: 997393240}
   m_Father: {fileID: 1241457186}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -2889,7 +2889,7 @@ MonoBehaviour:
   Habitat: {fileID: 247889903}
   Region: {fileID: 1746798264}
   MedicinalUse: {fileID: 1056049894}
-  NoteText: {fileID: 1043526935}
+  NoteText: {fileID: 1241457187}
   PlantImage: {fileID: 55132027}
 --- !u!1 &1746798262
 GameObject:

@@ -3131,6 +3131,8 @@ MonoBehaviour:
   Region: {fileID: 1746798264}
   MedicinalUse: {fileID: 1056049894}
   BookmarkText: {fileID: 398520767}
+  DeatailInfo: {fileID: 0}
+  PlantImage: {fileID: 0}
 --- !u!4 &1731722328
 Transform:
   m_ObjectHideFlags: 0

@@ -20,6 +20,8 @@ public class VideoHandler : MonoBehaviour
     private EventSystem EventSystem;
     private PointerEventData pointerEventData;
     bool playing;
+    bool isUrlSet = false;
+    public static string url = null;
     void Start()
     {
         playing = true;
@@ -100,6 +102,12 @@ public class VideoHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(!isUrlSet && url != null)
+        {
+            Player.url = url;
+            isUrlSet = true;
+        }
+
         PlayButtonText.text = playing ? "Pause" : "Play";
         if (CheckMousePos())
         {
