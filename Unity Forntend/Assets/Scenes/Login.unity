@@ -461,7 +461,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 9.56, y: 0}
+  m_AnchoredPosition: {x: 9.559998, y: 0}
   m_SizeDelta: {x: -19.12, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &202586489
@@ -749,7 +749,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 9.56, y: 0}
+  m_AnchoredPosition: {x: 9.559998, y: 0}
   m_SizeDelta: {x: -19.12, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &293143707
@@ -1340,7 +1340,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 9.5603, y: 0}
+  m_AnchoredPosition: {x: 9.560303, y: 0}
   m_SizeDelta: {x: -19.12, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &548841393
@@ -1715,9 +1715,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93561e8308e0c4a4aab3bb8ac4c7126f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UsernameField: {fileID: 1859814532}
+  UsernameField: {fileID: 1541248770}
   EmailField: {fileID: 0}
-  PasswordField: {fileID: 373747929}
+  PasswordField: {fileID: 548841393}
   ErrorPanel: {fileID: 965281700}
 --- !u!4 &886538493
 Transform:
@@ -2565,7 +2565,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 9.5603, y: 0}
+  m_AnchoredPosition: {x: 9.560303, y: 0}
   m_SizeDelta: {x: -19.12, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1541248770

@@ -1352,9 +1352,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93561e8308e0c4a4aab3bb8ac4c7126f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UsernameField: {fileID: 0}
-  EmailField: {fileID: 0}
-  PasswordField: {fileID: 0}
+  UsernameField: {fileID: 91586882}
+  EmailField: {fileID: 1762150281}
+  PasswordField: {fileID: 1156429358}
   ErrorPanel: {fileID: 965281700}
 --- !u!4 &886538493
 Transform:
@@ -1617,7 +1617,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &965281701
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3743,9 +3743,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11500000, guid: 93561e8308e0c4a4aab3bb8ac4c7126f, type: 3}
+      - m_Target: {fileID: 886538492}
         m_TargetAssemblyTypeName: EventHandlerScript, Assembly-CSharp
-        m_MethodName: 
+        m_MethodName: OnSignUpClicked
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

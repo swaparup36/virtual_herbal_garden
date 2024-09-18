@@ -951,7 +951,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 473607506}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 78.7}
   m_LocalScale: {x: 1.01, y: 1.01, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2884,6 +2884,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e11c934b7a26b64f82b74b8d79676ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BotanicName: {fileID: 2108349033}
+  CommonName: {fileID: 387978296}
+  Habitat: {fileID: 247889903}
+  Region: {fileID: 1746798264}
+  MedicinalUse: {fileID: 1056049894}
+  NoteText: {fileID: 1043526935}
+  PlantImage: {fileID: 55132027}
 --- !u!1 &1746798262
 GameObject:
   m_ObjectHideFlags: 0
