@@ -93,7 +93,7 @@ public class GameManagerScript : MonoBehaviour
                         x += 10;
                         z += 10;
                     }
-                    x = -20; z = 0;
+                    x = 20; z = -20;
                     for (int i = 0; i < 10; i++)
                     {
                         for (int j = 0; j < 10; j++)
@@ -106,7 +106,7 @@ public class GameManagerScript : MonoBehaviour
                             x += 10;
                         }
                         x = 0;
-                        z += 10;
+                        z += 5;
                     }
                 }
             }
