@@ -1,5 +1,5 @@
 using JetBrains.Annotations;
-using OpenCover.Framework.Model;
+//using OpenCover.Framework.Model;
 using System;
 using System.Buffers.Text;
 using System.Collections;
@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using TMPro;
-using TMPro.EditorUtilities;
+//using TMPro.EditorUtilities;
 using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.SceneManagement;
@@ -54,9 +54,9 @@ public class LoginErrors
 
 public class EventHandlerScript : MonoBehaviour
 {
-    public TMP_Text UsernameField;
-    public TMP_Text EmailField;
-    public TMP_Text PasswordField;
+    public TMP_InputField UsernameField;
+    public TMP_InputField EmailField;
+    public TMP_InputField PasswordField;
     public GameObject ErrorPanel;
     static public string ErrorMessage = "";
 
@@ -123,7 +123,7 @@ public class EventHandlerScript : MonoBehaviour
         }else
         {
             //jsonData = $"{{\"username\": \"\", \"password\": \"\"}}";
-            jsonData = $"{{\"username\": \"yogesh\", \"password\": \"yogesh\"}}";
+            jsonData = $"{{\"username\": \"{username}\", \"password\": \"{password}\"}}";
         }
         Debug.Log(jsonData);
 
