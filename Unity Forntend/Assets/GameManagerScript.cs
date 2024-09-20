@@ -9,7 +9,8 @@ using UnityEngine.Networking;
 using UnityEngine.UI;
 
 [Serializable]
-class Tree{
+class Tree
+{
     public string common_name;
     public string botanical_name;
     public string habitant;
@@ -19,7 +20,7 @@ class Tree{
     public string audio_link;
     public string information;
     public string medical_use;
-  }
+}
 
 [Serializable]
 class TreeResponse
@@ -59,6 +60,11 @@ public class GameManagerScript : MonoBehaviour
             if (webRequest.result == UnityWebRequest.Result.ConnectionError ||
                 webRequest.result == UnityWebRequest.Result.ProtocolError)
             {
+                if (webRequest.responseCode == 401)
+                {
+                    StartCoroutine(WebRequestScript.RefreshAccessToken("https://sih-wxqc.onrender.com/users/token/refresh/"));
+                    StartCoroutine(SendPostRequest("https://sih-wxqc.onrender.com/trees/"));
+                }
                 Debug.LogError("Error: " + webRequest.error);
             }
             else
@@ -83,9 +89,24 @@ public class GameManagerScript : MonoBehaviour
                         obj.name = $"prefab {tree.common_name}";
                         obj.GetComponent<Transform>().position = new Vector3(x, 0, z);
                         obj.GetComponent<PlantInteractionScript>().PlantCommonName = tree.common_name;
-                        Instantiate (obj);
-                        x+= 10;
-                        z+= 10;
+                        Instantiate(obj);
+                        x += 10;
+                        z += 10;
+                    }
+                    x = 20; z = -20;
+                    for (int i = 0; i < 10; i++)
+                    {
+                        for (int j = 0; j < 10; j++)
+                        {
+                            //Debug.Log(tree.common_name);
+                            obj.name = $"prefab {x} {z}";
+                            obj.GetComponent<Transform>().position = new Vector3(x, 0, z);
+                            obj.GetComponent<PlantInteractionScript>().PlantCommonName = "ASHWAGANDHA";
+                            Instantiate(obj);
+                            x += 10;
+                        }
+                        x = 0;
+                        z += 5;
                     }
                 }
             }
