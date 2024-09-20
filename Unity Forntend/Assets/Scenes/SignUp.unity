@@ -1352,9 +1352,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93561e8308e0c4a4aab3bb8ac4c7126f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UsernameField: {fileID: 91586882}
-  EmailField: {fileID: 1762150281}
-  PasswordField: {fileID: 1156429358}
+  UsernameField: {fileID: 299346871}
+  EmailField: {fileID: 1718384769}
+  PasswordField: {fileID: 944888019}
   ErrorPanel: {fileID: 965281700}
 --- !u!4 &886538493
 Transform:

@@ -54,9 +54,9 @@ public class LoginErrors
 
 public class EventHandlerScript : MonoBehaviour
 {
-    public TMP_Text UsernameField;
-    public TMP_Text EmailField;
-    public TMP_Text PasswordField;
+    public TMP_InputField UsernameField;
+    public TMP_InputField EmailField;
+    public TMP_InputField PasswordField;
     public GameObject ErrorPanel;
     static public string ErrorMessage = "";
 
@@ -123,7 +123,7 @@ public class EventHandlerScript : MonoBehaviour
         }else
         {
             //jsonData = $"{{\"username\": \"\", \"password\": \"\"}}";
-            jsonData = $"{{\"username\": \"yogesh\", \"password\": \"yogesh\"}}";
+            jsonData = $"{{\"username\": \"{username}\", \"password\": \"{password}\"}}";
         }
         Debug.Log(jsonData);
 
