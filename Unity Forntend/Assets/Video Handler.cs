@@ -27,6 +27,8 @@ public class VideoHandler : MonoBehaviour
         playing = true;
         Raycaster = Canvas.GetComponent<GraphicRaycaster>();
         EventSystem = EventSystem.current;
+        //Debug.Log(PlayerPrefs.GetString("videoUrl"));
+        Player.url = PlayerPrefs.GetString("videoUrl");
     }
 
 
@@ -85,7 +87,6 @@ public class VideoHandler : MonoBehaviour
             }
             if (found)
             {
-                Debug.Log("Mouse is over a UI element: " + results[0].gameObject.name);
                 return true;
             }else
             {
@@ -94,7 +95,6 @@ public class VideoHandler : MonoBehaviour
         }
         else
         {
-            Debug.Log("Mouse is NOT over a UI element");
             return false;
         }
     }
@@ -102,9 +102,10 @@ public class VideoHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(!isUrlSet && url != null)
+        if (!isUrlSet && !PlayerPrefs.GetString("videoUrl").Equals(""))
         {
-            Player.url = url;
+            Debug.Log(PlayerPrefs.GetString("videoUrl"));
+            Player.url = PlayerPrefs.GetString("videoUrl");
             isUrlSet = true;
         }
 

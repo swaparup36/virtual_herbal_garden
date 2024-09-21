@@ -1,5 +1,9 @@
+<<<<<<< HEAD
 using JetBrains.Annotations;
 //using OpenCover.Framework.Model;
+=======
+
+>>>>>>> edf9b792cc34bd5d44b9ab0fb64b4e747b2936d0
 using System;
 using System.Buffers.Text;
 using System.Collections;
@@ -7,7 +11,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using TMPro;
+<<<<<<< HEAD
 //using TMPro.EditorUtilities;
+=======
+>>>>>>> edf9b792cc34bd5d44b9ab0fb64b4e747b2936d0
 using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.SceneManagement;
@@ -86,7 +93,7 @@ public class EventHandlerScript : MonoBehaviour
             form.AddField("email", "test3@gmail.com");
             form.AddField("password", "testpassword");
             Debug.Log(form.ToString());
-            StartCoroutine(SendPostRequest("https://sih-wxqc.onrender.com/users/create/"));
+            StartCoroutine(SendPostRequest("https://sih-5at5.onrender.com/users/create/"));
         }
     }
 
@@ -104,7 +111,7 @@ public class EventHandlerScript : MonoBehaviour
             var form = new WWWForm();
             form.AddField("username", UsernameField.text);
             form.AddField("password", PasswordField.text);
-            StartCoroutine(SendPostRequest("https://sih-wxqc.onrender.com/users/login/", true));
+            StartCoroutine(SendPostRequest("https://sih-5at5.onrender.com/users/login/", true));
         }
     }
 
