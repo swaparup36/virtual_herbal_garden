@@ -64,6 +64,8 @@ public class InteractPageHandler : MonoBehaviour
         SceneManager.LoadScene("Take Notes");
     }
 
+
+
     IEnumerator SendPostRequest(string uri)
     {
         isRequestProcessing = true;
