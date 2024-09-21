@@ -6,6 +6,7 @@ using Unity.VisualScripting.Antlr3.Runtime.Tree;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Networking;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 [Serializable]
@@ -48,6 +49,12 @@ public class GameManagerScript : MonoBehaviour
         {
             StartCoroutine(SendPostRequest("https://sih-5at5.onrender.com/trees/"));
         }
+    }
+
+    public void OnGuidedTour()
+    {
+        Debug.Log("click");
+        SceneManager.LoadScene("GuidedTour");
     }
 
     IEnumerator SendPostRequest(string uri)

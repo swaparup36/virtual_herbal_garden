@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ShortDetails.unity
     guid: be1b427f78edd9e46ac4cdd36d618ed3
+  - enabled: 1
+    path: Assets/Scenes/GuidedTour.unity
+    guid: 08d19b3c31b05a545bc08abe111944c0
   m_configObjects: {}
