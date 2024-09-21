@@ -35,12 +35,18 @@ public class GameManagerScript : MonoBehaviour
     public Transform PlayerTransform;
     public float Radius;
     public Canvas Canvas;
+    private GameObject obj;
     // Start is called before the first frame update
     void Start()
     {
+        obj = PrefabType;
+        if (obj.GetComponent<PlantInteractionScript>() == null)
+        {
+            PlantInteractionScript pis = obj.AddComponent<PlantInteractionScript>();
+        }
         if (!isRequestProcessing)
         {
-            StartCoroutine(SendPostRequest("https://sih-wxqc.onrender.com/trees/"));
+            StartCoroutine(SendPostRequest("https://sih-5at5.onrender.com/trees/"));
         }
     }
 
@@ -62,24 +68,23 @@ public class GameManagerScript : MonoBehaviour
             {
                 if (webRequest.responseCode == 401)
                 {
-                    StartCoroutine(WebRequestScript.RefreshAccessToken("https://sih-wxqc.onrender.com/users/token/refresh/"));
-                    StartCoroutine(SendPostRequest("https://sih-wxqc.onrender.com/trees/"));
+                    StartCoroutine(WebRequestScript.RefreshAccessToken("https://sih-5at5.onrender.com/users/token/refresh/"));
+                    StartCoroutine(SendPostRequest("https://sih-5at5.onrender.com/trees/"));
                 }
-                Debug.LogError("Error: " + webRequest.error);
+                Debug.Log("Error: " + webRequest.error);
             }
             else
             {
-                GameObject obj = PrefabType;
-                obj.AddComponent<PlantInteractionScript>();
-                obj.GetComponent<PlantInteractionScript>().Radius = Radius;
-                //obj.GetComponent<PlantInteractionScript>().Canvas = Canvas;
-                obj.GetComponent<PlantInteractionScript>().PlayerTransform = PlayerTransform;
-                obj.GetComponent<PlantInteractionScript>().Mask = -1;
                 //Instantiate(obj);
                 // Handle the response
                 string json = $"{{\"plant_array\":{webRequest.downloadHandler.text}}}";
                 Debug.Log("Response: " + json);
                 TreeResponse trees = JsonUtility.FromJson<TreeResponse>(json);
+                PlantInteractionScript pis = obj.GetComponent<PlantInteractionScript>();
+                pis.Radius = Radius;
+                pis.Mask = -1;
+                pis.PlayerTransform = PlayerTransform;
+
                 if (trees != null)
                 {
                     int x = -10, z = 0;
@@ -88,20 +93,20 @@ public class GameManagerScript : MonoBehaviour
                         Debug.Log(tree.common_name);
                         obj.name = $"prefab {tree.common_name}";
                         obj.GetComponent<Transform>().position = new Vector3(x, 0, z);
-                        obj.GetComponent<PlantInteractionScript>().PlantCommonName = tree.common_name;
+                        pis.PlantCommonName = tree.common_name;
                         Instantiate(obj);
                         x += 10;
                         z += 10;
                     }
                     x = 20; z = -20;
-                    for (int i = 0; i < 10; i++)
+                    for (int i = 0; i < 5; i++)
                     {
-                        for (int j = 0; j < 10; j++)
+                        for (int j = 0; j < 5; j++)
                         {
                             //Debug.Log(tree.common_name);
                             obj.name = $"prefab {x} {z}";
                             obj.GetComponent<Transform>().position = new Vector3(x, 0, z);
-                            obj.GetComponent<PlantInteractionScript>().PlantCommonName = "ASHWAGANDHA";
+                            pis.PlantCommonName = "Garlic";
                             Instantiate(obj);
                             x += 10;
                         }
@@ -112,6 +117,11 @@ public class GameManagerScript : MonoBehaviour
             }
         }
         isRequestProcessing = false;
+    }
+
+    public void OnSearchClick()
+    {
+        Cursor.lockState = CursorLockMode.None;
     }
 
     // Update is called once per frame

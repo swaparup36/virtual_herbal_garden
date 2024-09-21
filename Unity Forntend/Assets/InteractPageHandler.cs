@@ -18,7 +18,7 @@ class TreeDetails
     public string region;
     public string type;
     public string image_link;
-    public string audio_link;
+    public string video_link;
     public string information;
     public string medical_use;
 }
@@ -48,7 +48,7 @@ public class InteractPageHandler : MonoBehaviour
     void Start()
     {
         Cursor.lockState = CursorLockMode.None;
-        StartCoroutine(SendPostRequest($"https://sih-wxqc.onrender.com/trees/{PlayerPrefs.GetString("ActiveCommonName")}"));
+        StartCoroutine(SendPostRequest($"https://sih-5at5.onrender.com/trees/{PlayerPrefs.GetString("ActiveCommonName")}"));
     }
     public void OnViewModel()
     {
@@ -83,8 +83,8 @@ public class InteractPageHandler : MonoBehaviour
                 Debug.Log("Error: " + webRequest.error);
                 if (webRequest.responseCode == 401)
                 {
-                    StartCoroutine(WebRequestScript.RefreshAccessToken("https://sih-wxqc.onrender.com/users/token/refresh/"));
-                    StartCoroutine(SendPostRequest($"https://sih-wxqc.onrender.com/trees/{PlayerPrefs.GetString("ActiveCommonName")}"));
+                    StartCoroutine(WebRequestScript.RefreshAccessToken("https://sih-5at5.onrender.com/users/token/refresh/"));
+                    StartCoroutine(SendPostRequest($"https://sih-5at5.onrender.com/trees/{PlayerPrefs.GetString("ActiveCommonName")}"));
                 }
             }
             else
@@ -98,9 +98,17 @@ public class InteractPageHandler : MonoBehaviour
                     CommonName.text = root.message.common_name;
                     Habitat.text = root.message.habitant;
                     Region.text = root.message.region;
-                    MedicinalUse.text = root.message.medical_use;
                     isBookMarked = root.bookmarked;
                     BookmarkText.text = isBookMarked ? "Remove Bookmark" : "Add Bookmark";
+                    Debug.Log(root.message.video_link);
+                    PlayerPrefs.SetString("videoUrl", root.message.video_link);
+                    VideoHandler.url = root.message.video_link; 
+
+                    if (MedicinalUse != null)
+                    {
+                        MedicinalUse.text = root.message.medical_use;
+                    }
+
                     if (DeatailInfo != null)
                     {
                         DeatailInfo.text = root.message.information;
@@ -123,11 +131,11 @@ public class InteractPageHandler : MonoBehaviour
         string url = "";
         if (isBookMarked)
         {
-            url = $"https://sih-wxqc.onrender.com/users/bookmarks/removeBookmark/{PlayerPrefs.GetString("ActiveCommonName")}/";
+            url = $"https://sih-5at5.onrender.com/users/bookmarks/removeBookmark/{PlayerPrefs.GetString("ActiveCommonName")}/";
         }
         else
         {
-            url = $"https://sih-wxqc.onrender.com/users/bookmarks/createBookmark/{PlayerPrefs.GetString("ActiveCommonName")}/";
+            url = $"https://sih-5at5.onrender.com/users/bookmarks/createBookmark/{PlayerPrefs.GetString("ActiveCommonName")}/";
         }
 
         

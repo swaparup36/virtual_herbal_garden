@@ -42,8 +42,8 @@ public class TakeNotesInteractionScript : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         if (!isRequestProcessing)
         {
-            StartCoroutine(SendPostRequest($"https://sih-wxqc.onrender.com/trees/{PlayerPrefs.GetString("ActiveCommonName")}/"));
-            StartCoroutine(GetNotesRequest($"https://sih-wxqc.onrender.com/notes/myNotes/{PlayerPrefs.GetString("ActiveCommonName")}/"));
+            StartCoroutine(SendPostRequest($"https://sih-5at5.onrender.com/trees/{PlayerPrefs.GetString("ActiveCommonName")}/"));
+            StartCoroutine(GetNotesRequest($"https://sih-5at5.onrender.com/notes/myNotes/{PlayerPrefs.GetString("ActiveCommonName")}/"));
         }
     }
 
@@ -64,12 +64,12 @@ public class TakeNotesInteractionScript : MonoBehaviour
                 Debug.Log("Error: " + webRequest.error);
                 if (webRequest.responseCode == 401)
                 {
-                    StartCoroutine(WebRequestScript.RefreshAccessToken("https://sih-wxqc.onrender.com/users/token/refresh/"));
-                    StartCoroutine(GetNotesRequest($"https://sih-wxqc.onrender.com/notes/myNotes/{PlayerPrefs.GetString("ActiveCommonName")}/"));
+                    StartCoroutine(WebRequestScript.RefreshAccessToken("https://sih-5at5.onrender.com/users/token/refresh/"));
+                    StartCoroutine(GetNotesRequest($"https://sih-5at5.onrender.com/notes/myNotes/{PlayerPrefs.GetString("ActiveCommonName")}/"));
                 }
                 else if (webRequest.responseCode == 404)
                 {
-                    StartCoroutine(CreateNoteRequest($"https://sih-wxqc.onrender.com/notes/create/{PlayerPrefs.GetString("ActiveCommonName")}/"));
+                    StartCoroutine(CreateNoteRequest($"https://sih-5at5.onrender.com/notes/create/{PlayerPrefs.GetString("ActiveCommonName")}/"));
                 }
             }
             else
@@ -89,7 +89,7 @@ public class TakeNotesInteractionScript : MonoBehaviour
     public void OnSave()
     {
         if (!isRequestProcessing)
-            StartCoroutine(SaveRequest($"https://sih-wxqc.onrender.com/notes/update/{PlayerPrefs.GetString("ActiveCommonName")}/"));
+            StartCoroutine(SaveRequest($"https://sih-5at5.onrender.com/notes/update/{PlayerPrefs.GetString("ActiveCommonName")}/"));
     }
 
     IEnumerator SaveRequest(string url)
@@ -118,8 +118,8 @@ public class TakeNotesInteractionScript : MonoBehaviour
             //Debug.LogError("Error: " + webRequest.error);
             if (webRequest.responseCode == 401)
             {
-                StartCoroutine(WebRequestScript.RefreshAccessToken("https://sih-wxqc.onrender.com/users/token/refresh/"));
-                StartCoroutine(SaveRequest($"https://sih-wxqc.onrender.com/notes/update/{PlayerPrefs.GetString("ActiveCommonName")}/"));
+                StartCoroutine(WebRequestScript.RefreshAccessToken("https://sih-5at5.onrender.com/users/token/refresh/"));
+                StartCoroutine(SaveRequest($"https://sih-5at5.onrender.com/notes/update/{PlayerPrefs.GetString("ActiveCommonName")}/"));
             }
         }
         else
@@ -158,8 +158,8 @@ public class TakeNotesInteractionScript : MonoBehaviour
         {
             if (request.responseCode == 401)
             {
-                StartCoroutine(WebRequestScript.RefreshAccessToken("https://sih-wxqc.onrender.com/users/token/refresh/"));
-                StartCoroutine(CreateNoteRequest($"https://sih-wxqc.onrender.com/notes/create/{PlayerPrefs.GetString("ActiveCommonName")}/"));
+                StartCoroutine(WebRequestScript.RefreshAccessToken("https://sih-5at5.onrender.com/users/token/refresh/"));
+                StartCoroutine(CreateNoteRequest($"https://sih-5at5.onrender.com/notes/create/{PlayerPrefs.GetString("ActiveCommonName")}/"));
             }
         }
         else
@@ -186,8 +186,8 @@ public class TakeNotesInteractionScript : MonoBehaviour
             {
                 if (webRequest.responseCode == 401)
                 {
-                    StartCoroutine(WebRequestScript.RefreshAccessToken("https://sih-wxqc.onrender.com/users/token/refresh/"));
-                    StartCoroutine(SendPostRequest($"https://sih-wxqc.onrender.com/trees/{PlayerPrefs.GetString("ActiveCommonName")}/"));
+                    StartCoroutine(WebRequestScript.RefreshAccessToken("https://sih-5at5.onrender.com/users/token/refresh/"));
+                    StartCoroutine(SendPostRequest($"https://sih-5at5.onrender.com/trees/{PlayerPrefs.GetString("ActiveCommonName")}/"));
                 }
                 //Debug.LogError("Error: " + webRequest.error);
             }
@@ -205,13 +205,13 @@ public class TakeNotesInteractionScript : MonoBehaviour
                     MedicinalUse.text = root.message.medical_use;
                     if (PlantImage != null)
                     {
+                        VideoHandler.url = root.message.video_link;
                         string imgUrl = root.message.image_link;
                         Debug.Log($"Plnat Image place holder {root.message.image_link}");
                         StartCoroutine(LoadImageCoroutine(imgUrl));
                     }
                     else
                     {
-                        VideoHandler.url = root.message.audio_link;
                     }
                 }
             }
